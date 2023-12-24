@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 const Previous = () => {
   const [alltask, setAlltask] = useState([]);
 
-  const url = "http://localhost:5000/taskstatus?status=completed";
+  const url =
+    "https://task-management-paltform-server.vercel.app/taskstatus?status=completed";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

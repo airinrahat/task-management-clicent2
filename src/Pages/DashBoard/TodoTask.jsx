@@ -9,7 +9,8 @@ const TodoTask = () => {
   const [alltask, setAlltask] = useState([]);
   const [processedTaskIds, setProcessedTaskIds] = useState(new Set());
 
-  const url = "http://localhost:5000/taskstatus?status=to-do";
+  const url =
+    "https://task-management-paltform-server.vercel.app/taskstatus?status=to-do";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,9 +52,12 @@ const TodoTask = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tasks/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://task-management-paltform-server.vercel.app/tasks/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -89,7 +93,7 @@ const TodoTask = () => {
     // Add the task ID to the processed set
     setProcessedTaskIds((prevSet) => new Set(prevSet.add(taskId)));
 
-    fetch("http://localhost:5000/notification", {
+    fetch("https://task-management-paltform-server.vercel.app/notification", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -116,7 +120,7 @@ const TodoTask = () => {
 
   const handleAutoDelete = (_id) => {
     console.log(_id);
-    fetch(`http://localhost:5000/tasks/${_id}`, {
+    fetch(`https://task-management-paltform-server.vercel.app/tasks/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -131,9 +135,12 @@ const TodoTask = () => {
   };
 
   const statusChange = (task) => {
-    fetch(`http://localhost:5000/tasks/ongoingstatus/${task._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://task-management-paltform-server.vercel.app/tasks/ongoingstatus/${task._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

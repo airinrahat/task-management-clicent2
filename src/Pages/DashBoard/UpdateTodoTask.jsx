@@ -26,13 +26,16 @@ const UpdateTodoTask = () => {
     };
 
     //send data to server
-    fetch(`http://localhost:5000/tasks/${updateTask._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(update),
-    })
+    fetch(
+      `https://task-management-paltform-server.vercel.app/tasks/${updateTask._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(update),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -59,7 +62,7 @@ const UpdateTodoTask = () => {
       update: "update-data",
     };
 
-    fetch("http://localhost:5000/notification", {
+    fetch("https://task-management-paltform-server.vercel.app/notification", {
       method: "POST",
       headers: {
         "content-type": "application/json",

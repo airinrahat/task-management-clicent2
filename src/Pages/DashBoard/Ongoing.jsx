@@ -6,7 +6,8 @@ import Swal from "sweetalert2";
 const Ongoing = () => {
   const [alltask, setAlltask] = useState([]);
 
-  const url = "http://localhost:5000/taskstatus?status=ongoing";
+  const url =
+    "https://task-management-paltform-server.vercel.app/taskstatus?status=ongoing";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -26,9 +27,12 @@ const Ongoing = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tasks/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://task-management-paltform-server.vercel.app/tasks/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -43,9 +47,12 @@ const Ongoing = () => {
   };
 
   const statusChange = (task) => {
-    fetch(`http://localhost:5000/tasks/completedstatus/${task._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://task-management-paltform-server.vercel.app/tasks/completedstatus/${task._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

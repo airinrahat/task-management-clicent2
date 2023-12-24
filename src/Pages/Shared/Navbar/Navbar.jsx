@@ -40,7 +40,7 @@ const Navbar = () => {
     </>
   );
 
-  const url = "http://localhost:5000/notification";
+  const url = "https://task-management-paltform-server.vercel.app/notification";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

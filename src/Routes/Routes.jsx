@@ -27,7 +27,8 @@ export const router = createBrowserRouter([
       {
         path: "/mytask",
         element: <MyTask></MyTask>,
-        loader: () => fetch("http://localhost:5000/tasks"),
+        loader: () =>
+          fetch("https://task-management-paltform-server.vercel.app/tasks"),
       },
       {
         path: "/blog",
@@ -67,7 +68,8 @@ export const router = createBrowserRouter([
       {
         path: "todoTask",
         element: <TodoTask></TodoTask>,
-        loader: () => fetch("http://localhost:5000/tasks"),
+        loader: () =>
+          fetch("https://task-management-paltform-server.vercel.app/tasks"),
       },
       {
         path: "ongoing",
@@ -81,7 +83,9 @@ export const router = createBrowserRouter([
         path: "updatetodotask/:id",
         element: <UpdateTodoTask></UpdateTodoTask>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(
+            `https://task-management-paltform-server.vercel.app/tasks/${params.id}`
+          ),
       },
     ],
   },

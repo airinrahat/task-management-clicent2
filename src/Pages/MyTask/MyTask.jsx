@@ -7,7 +7,7 @@ const MyTask = () => {
 
   const [allTask, setAllTask] = useState([]);
 
-  const url = `http://localhost:5000/getMyTask?email=${user?.email}`;
+  const url = `https://task-management-paltform-server.vercel.app/getMyTask?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
