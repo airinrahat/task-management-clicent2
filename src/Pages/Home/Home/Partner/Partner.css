@@ -1,0 +1,11 @@
+.partner .swiper {
+  padding: 60px;
+}
+
+.partner .swiper-pagination {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.partner .swiper-pagination-bullet-active {
+  background-color: #007aff;
+}
